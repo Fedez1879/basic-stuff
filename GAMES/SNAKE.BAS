@@ -1,3 +1,4 @@
+5 KEY OFF
 10 DEF SEG = &HB800: DIM SP(1000), SD(3), SV(2): RANDOMIZE TIMER: W = 40
 12 ' SP is the positional array of the snake
 15 ' SD contains the position vector plus the snake length
@@ -79,7 +80,7 @@
 3040 IF C$ <> "Y" AND C$ <> "y" AND C$ <> "N" AND C$ <> "n" THEN GOTO 3030
 3050 CLS
 3060 IF C$ = "Y" OR C$ = "y" THEN GOTO 30
-3070 COLOR 7: WIDTH 80: END
+3070 COLOR 7: WIDTH 80: KEY ON: END
 5000 ' title screen
 5010 SCREEN 0: WIDTH 80: CLS
 5020 FOR Y = 5 TO 14: READ CO, T$: COLOR CO: LOCATE Y,4: PRINT T$: NEXT Y

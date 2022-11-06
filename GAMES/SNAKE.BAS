@@ -5,11 +5,13 @@
 25 ' SD contains the position vector plus the snake length
 27 ' SV contains the snake velocity XY
 30 S = 197: F = 254: BB = 177: WS = 32 ' define ascii code graphic
-40 PT = 0: M = 1000 'define points and loop timing
+40 PT = 0: M = 1000: DM = INT(M/40) 'define points and loop timing
+45 SCREEN ,,,1
 50 GOSUB 1500 ' draw bb
 60 GOSUB 1200 ' reset snake data
 70 GOSUB 1100 ' draw snake
 80 GOSUB 1150 ' draw food
+85 SCREEN ,,,0
 90 GOTO 500 ' game loop
 499 END
 500 ' game loop
@@ -56,7 +58,7 @@
 1330 SP(SD(2)-1) = P
 1340 RETURN
 1400 ' food taken
-1410 PLAY "MBL32N32": M = M - 25: PT = PT + 50: SD(2) = SD(2) + 1
+1410 PLAY "MBL32N32": M = M - DM: PT = PT + 50: SD(2) = SD(2) + 1
 1420 GOSUB 1100: GOSUB 1320: GOSUB 1150: RETURN
 1500 ' generate bounding box
 1510 C = BB: C1 = 7

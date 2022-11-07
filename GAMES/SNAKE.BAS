@@ -1,5 +1,5 @@
 5 KEY OFF
-10 DEF SEG = &HB800: DIM SP%(1000), SD%(3), SV%(2): RANDOMIZE TIMER: W% = 40
+10 DEF SEG = &HB800: DIM SP%(1000), SD%(2), SV%(1): RANDOMIZE TIMER: W% = 40
 12 ' SP% is the positional array of the snake
 15 ' SD% contains the position vector plus the snake length
 17 ' SV% contains the snake velocity XY
@@ -83,23 +83,20 @@
 3070 COLOR 7: WIDTH 80: KEY ON: END
 5000 ' title screen
 5010 SCREEN 0: WIDTH 80: CLS
-5020 FOR Y% = 4 TO 13: READ CO%, T$: COLOR CO%: LOCATE Y%, 4: PRINT T$: NEXT Y%
-5030 COLOR 0, 2: LOCATE 16, 24: PRINT CHR$(S%); : COLOR 2, 0: PRINT " YOU"
-5040 COLOR 14: LOCATE 16, 52: PRINT CHR$(F%) + " FOOD"
+5020 FOR Y% = 4 TO 11: READ CO%, T$: COLOR CO%: LOCATE Y%, 4: PRINT T$: NEXT Y%
+5030 COLOR 0, 2: LOCATE 15, 24: PRINT CHR$(S%); : COLOR 2, 0: PRINT " YOU"
+5040 COLOR 14: LOCATE 15, 52: PRINT CHR$(F%) + " FOOD"
 5050 COLOR 10: LOCATE 18, 20: PRINT "EAT FOOD AND GET BIGGER AS LONG AS YOU CAN!"
 5060 COLOR 12: LOCATE 20, 19: PRINT "USE ARRWS KEYS TO MOVE, ESC TO PAUSE THE GAME"
 5070 LOCATE 22, 29: COLOR 28: PRINT CHR$(BB%); : COLOR 14: PRINT " HIT ANY KEY TO PLAY "; : COLOR 28: PRINT CHR$(BB%);
 5080 K$ = INKEY$: IF K$ = "" THEN GOTO 5080
 5090 RETURN
 6000 ' data
-6010 DATA 2, " @@@@@@@@  @@@  @@@  @@@   @@@@@@   @@@  @@@   @@@@@@   @@@  @@@  @@@@@@@@"
-6020 DATA 10, "@@@@@@@@@  @@@  @@@  @@@  @@@@@@@   @@@@ @@@  @@@@@@@@  @@@  @@@  @@@@@@@@"
-6030 DATA 14, "!@@        @@!  @@!  @@!  !@@       @@!@!@@@  @@!  @@@  @@!  !@@  @@!"
-6040 DATA 15, "!@!        !@!  !@!  !@!  !@!       !@!!@!@!  !@!  @!@  !@!  @!!  !@!"
-6050 DATA 14, "!@! @!@!@  @!!  !!@  @!@  !!@@!!    @!@ !!@!  @!@!@!@!  @!@@!@!   @!!!:!"
-6060 DATA 10, "!!! !!@!!  !@!  !!!  !@!   !!@!!!   !@!  !!!  !!!@!!!!  !!@!!!    !!!!!:"
-6070 DATA 2, ":!!   !!:  !!:  !!:  !!:       !:!  !!:  !!!  !!:  !!!  !!: :!!   !!:"
-6080 DATA 2, ":!:   !::  :!:  :!:  :!:      !:!   :!:  !:!  :!:  !:!  :!:  !:!  :!:"
-6090 DATA 2, " ::: ::::   :::: :: :::   :::: ::    ::   ::  ::   :::   ::  :::   :: ::::"
-6100 DATA 2, " :: :: :     :: :  : :    :: : :    ::    :    :   : :   :   :::  : :: ::"
-
+6010 DATA 2,  " @@@@@@@@  @@@  @@@  @@@    @@@@@@@@@@@  @@@   @@@@@@   @@@  @@@  @@@@@@@@"
+6020 DATA 10, "@@@@@@@@@  @@@  @@@  @@@   @@@@@@@@@@@@@ @@@  @@@@@@@@  @@@  @@@  @@@@@@@@"
+6030 DATA 14, "@@@        @@@  @@@  @@@  @@@       @@@@@@@@  @@@  @@@  @@@  @@@  @@@"
+6050 DATA 15, "@@@ @@@@@  @@@  @@@  @@@   @@@@@    @@@ @@@@  @@@@@@@@  @@@@@@@   @@@@@@"
+6060 DATA 14, "@@@ @@@@@  @@@  @@@  @@@    @@@@@   @@@  @@@  @@@@@@@@  @@@@@@    @@@@@@"
+6070 DATA 10, "@@@   @@@  @@@  @@@  @@@       @@@  @@@  @@@  @@@  @@@  @@@ @@@   @@@"
+6090 DATA 2,  " @@@@@@@@   @@@@@@@@@@@@@@@@@@@@@   @@@  @@@  @@@  @@@  @@@  @@@  @@@@@@@@"
+6100 DATA 2,  "  @@@@@@@    @@@  @@@@@@@@@@@@@@    @@@  @@@  @@@  @@@  @@@  @@@  @@@@@@@@"
